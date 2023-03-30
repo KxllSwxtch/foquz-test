@@ -53,19 +53,22 @@ function ViewModel() {
 
 	// Single elements
 	self.singleCategories = ko.observableArray([
-		{
+		new CategoryModel({
 			title: 'Тестовое задание кандидата',
 			subtitle:
 				'Россия, Белорусия, Украина, администратор филиала, повар-сушист, повар-пиццмейкер, повар горячего цеха',
-		},
-		{
+			elements: [],
+		}),
+		new CategoryModel({
 			title: 'Трудовой договор',
 			subtitle: '',
-		},
-		{
+			elements: [],
+		}),
+		new CategoryModel({
 			title: 'Мед. книжка',
 			subtitle: '',
-		},
+			elements: [],
+		}),
 	])
 }
 

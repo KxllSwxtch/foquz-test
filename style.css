@@ -93,6 +93,16 @@ header {
 .dropdown__header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.dropdown__header__heading {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.dropdown__header__buttons {
+  display: flex;
+  align-items: center;
 }
 .dropdown__title {
   margin-right: 1rem;
@@ -123,7 +133,7 @@ header {
 
 /* CATEGORIES */
 .categories {
-  margin-top: 1.3rem;
+  margin-top: 2rem;
 }
 .category {
   padding: 0.7rem 1.4rem;
@@ -153,4 +163,10 @@ header {
 .category__button {
   margin: 0.65rem;
   cursor: pointer;
+}
+.category__status {
+  color: #ff238c;
+  font-weight: 400;
+  margin-right: 1rem;
+  font-size: 0.65em;
 }
