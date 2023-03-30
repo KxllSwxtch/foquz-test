@@ -116,6 +116,10 @@ header {
   justify-content: center;
   margin-right: 1rem;
 }
+.dropdown__info {
+  margin-top: 1rem;
+  margin-left: 1.2rem
+}
 
 /* CATEGORIES */
 .categories {
