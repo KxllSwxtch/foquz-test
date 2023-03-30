@@ -171,3 +171,7 @@ header {
   margin-right: 1rem;
   font-size: 0.65em;
 }
+
+.rotate-icon {
+  transform: rotate(180deg);
+}

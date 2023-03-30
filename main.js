@@ -17,7 +17,7 @@ function CategoryModel({ title, subtitle, elements }) {
 	self.subtitle = subtitle
 	self.elements = elements
 
-	self.isCollapsed = ko.observable(false)
+	self.isCollapsed = ko.observable(true)
 	self.collapse = function () {
 		self.isCollapsed(!self.isCollapsed())
 	}
