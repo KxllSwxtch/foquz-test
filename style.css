@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 html {
@@ -87,13 +88,14 @@ header {
 }
 .dropdown__container {
   cursor: pointer;
-  border: 1px solid #dfe4ef;
   padding: 0.6rem;
 }
 .dropdown__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid #dfe4ef;
+  padding: 0.2rem 1rem;
 }
 .dropdown__header__heading {
   display: flex;
@@ -127,7 +129,6 @@ header {
   margin-right: 1rem;
 }
 .dropdown__info {
-  margin-top: 1rem;
   margin-left: 1.2rem
 }
 
@@ -136,7 +137,7 @@ header {
   margin-top: 2rem;
 }
 .category {
-  padding: 0.7rem 1.4rem;
+  padding: 0.1rem 1.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -72,6 +72,17 @@ function ViewModel() {
 	])
 }
 
+ko.bindingHandlers.slideIn = {
+	init: function (element, valueAccessor) {
+		const value = ko.utils.unwrapObservable(valueAccessor())
+		$(element).toggle(value)
+	},
+	update: function (element, valueAccessor) {
+		const value = ko.utils.unwrapObservable(valueAccessor())
+		value ? $(element).slideDown() : $(element).slideUp()
+	},
+}
+
 ko.applyBindings(new ViewModel())
 
 /////

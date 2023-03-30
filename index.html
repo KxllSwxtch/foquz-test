@@ -9,6 +9,23 @@
 			integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
 			crossorigin="anonymous"
 		></script>
+		<script
+			src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+			integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
+			integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/knockout-sortable/1.2.0/knockout-sortable.min.js"
+			integrity="sha512-QAXYJtJLNhvpSyNVysVpqPTqosPq6vgVXsh2uV6j08kEcei5lutrml03LaiiNrzRzS6NXZU9qkYbXXX/nQ1s3g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -82,9 +99,10 @@
 						class="dropdown__info"
 						data-bind="
 							sortable: elements, 
-							visible: isCollapsed"
+							visible: isCollapsed,
+							slideIn: !isCollapsed()"
 					>
-						<div class="category">
+						<div class="category" style="margin-top: -1px">
 							<div class="category__heading">
 								<h4 class="category__title" data-bind="text: title"></h4>
 								<h5 class="category__status" data-bind="text: status"></h5>
@@ -136,23 +154,5 @@
 			</div>
 		</main>
 	</body>
-	<script
-		src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
-		integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY="
-		crossorigin="anonymous"
-	></script>
-
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
-		integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"
-	></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/knockout-sortable/1.2.0/knockout-sortable.min.js"
-		integrity="sha512-QAXYJtJLNhvpSyNVysVpqPTqosPq6vgVXsh2uV6j08kEcei5lutrml03LaiiNrzRzS6NXZU9qkYbXXX/nQ1s3g=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"
-	></script>
 	<script type="text/javascript" src="main.js"></script>
 </html>
