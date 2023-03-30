@@ -75,14 +75,11 @@
 			</div>
 
 			<!-- Single Categories -->
-			<div class="categories">
+			<div class="categories" data-bind="sortable: singleCategories">
 				<div class="category">
 					<div class="category__heading">
-						<h4 class="category__title">Тестовое задание кандидата</h4>
-						<h6 class="category__subtitle">
-							Россия, Белорусия, Украина, администратор филиала, повар-сушист,
-							повар-пиццмейкер, повар горячего цеха
-						</h6>
+						<h4 class="category__title" data-bind="text: title"></h4>
+						<h6 class="category__subtitle" data-bind="text: subtitle"></h6>
 					</div>
 					<div class="category__buttons">
 						<i
@@ -96,46 +93,7 @@
 						<i
 							class="fa-solid fa-up-down category__button"
 							style="color: #839cbb"
-						></i>
-					</div>
-				</div>
-				<div class="category">
-					<div class="category__heading">
-						<h4 class="category__title">Трудовой договор</h4>
-						<h6 class="category__subtitle"></h6>
-					</div>
-					<div class="category__buttons">
-						<i
-							class="fa-solid fa-pen category__button"
-							style="color: #8e9cbc"
-						></i>
-						<i
-							class="fa-solid fa-trash-can category__button"
-							style="color: #ff238c"
-						></i>
-						<i
-							class="fa-solid fa-up-down category__button"
-							style="color: #839cbb"
-						></i>
-					</div>
-				</div>
-				<div class="category">
-					<div class="category__heading">
-						<h4 class="category__title">Мед. книжка</h4>
-						<h6 class="category__subtitle"></h6>
-					</div>
-					<div class="category__buttons">
-						<i
-							class="fa-solid fa-pen category__button"
-							style="color: #8e9cbc"
-						></i>
-						<i
-							class="fa-solid fa-trash-can category__button"
-							style="color: #ff238c"
-						></i>
-						<i
-							class="fa-solid fa-up-down category__button"
-							style="color: #839cbb"
+							data-bind="click: $parent.moveUp"
 						></i>
 					</div>
 				</div>
@@ -148,8 +106,20 @@
 		crossorigin="anonymous"
 	></script>
 	<script
+		src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+		integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY="
+		crossorigin="anonymous"
+	></script>
+
+	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
 		integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/knockout-sortable/1.2.0/knockout-sortable.min.js"
+		integrity="sha512-QAXYJtJLNhvpSyNVysVpqPTqosPq6vgVXsh2uV6j08kEcei5lutrml03LaiiNrzRzS6NXZU9qkYbXXX/nQ1s3g=="
 		crossorigin="anonymous"
 		referrerpolicy="no-referrer"
 	></script>
