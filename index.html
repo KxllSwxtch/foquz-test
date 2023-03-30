@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="./style.css" />
+		<title>FOQUZ Test</title>
+	</head>
+
+	<body>
+		<!-- Header -->
+		<header class="header">
+			<h1 class="title">Документы</h1>
+			<div class="header__right">
+				<div class="bookmarkIcon">
+					<i class="fa-regular fa-bookmark" style="color: #8e9cbc"></i>
+				</div>
+				<button class="header__button">
+					<i class="fa-solid fa-plus" style="color: #0066ff"></i>
+					<span>Новый Тип</span>
+				</button>
+				<button class="header__button">
+					<i class="fa-solid fa-plus" style="color: #0066ff"></i>
+					<span>Новый Документ</span>
+				</button>
+			</div>
+		</header>
+		<!-- Search -->
+		<div class="searchContainer">
+			<i
+				class="fa-solid fa-magnifying-glass searchIcon"
+				style="color: #8e9cbc"
+			></i>
+			<input id="search" type="text" name="search" placeholder="Поиск" />
+			<i class="fa-solid fa-xmark xmarkIcon" style="color: #ff238c"></i>
+		</div>
+		<!-- Main -->
+		<main>
+			<!-- Dropdowns -->
+			<div class="dropdowns">
+				<div class="dropdown__container">
+					<div class="dropdown__header">
+						<i
+							class="fa-solid fa-chevron-down dropdown__icon"
+							style="color: #0066ff"
+						></i>
+						<h4 class="dropdown__title">Обязательные для всех</h4>
+						<h5 class="dropdown__subtitle">
+							Документы, обязательные для всех сотрудников без исключения
+						</h5>
+					</div>
+					<div class="dropdown__info"></div>
+				</div>
+				<div class="dropdown__container">
+					<div class="dropdown__header">
+						<i
+							class="fa-solid fa-chevron-down dropdown__icon"
+							style="color: #0066ff"
+						></i>
+						<h4 class="dropdown__title">Обязательные для всех</h4>
+						<h5 class="dropdown__subtitle">
+							Документы, обязательные для всех сотрудников без исключения
+						</h5>
+					</div>
+					<div class="dropdown__info"></div>
+				</div>
+			</div>
+
+			<!-- Single Categories -->
+			<div class="categories">
+				<div class="category">
+					<div class="category__heading">
+						<h4 class="category__title">Тестовое задание кандидата</h4>
+						<h6 class="category__subtitle">
+							Россия, Белорусия, Украина, администратор филиала, повар-сушист,
+							повар-пиццмейкер, повар горячего цеха
+						</h6>
+					</div>
+					<div class="category__buttons">
+						<i
+							class="fa-solid fa-pen category__button"
+							style="color: #8e9cbc"
+						></i>
+						<i
+							class="fa-solid fa-trash-can category__button"
+							style="color: #ff238c"
+						></i>
+						<i
+							class="fa-solid fa-up-down category__button"
+							style="color: #839cbb"
+						></i>
+					</div>
+				</div>
+				<div class="category">
+					<div class="category__heading">
+						<h4 class="category__title">Трудовой договор</h4>
+						<h6 class="category__subtitle"></h6>
+					</div>
+					<div class="category__buttons">
+						<i
+							class="fa-solid fa-pen category__button"
+							style="color: #8e9cbc"
+						></i>
+						<i
+							class="fa-solid fa-trash-can category__button"
+							style="color: #ff238c"
+						></i>
+						<i
+							class="fa-solid fa-up-down category__button"
+							style="color: #839cbb"
+						></i>
+					</div>
+				</div>
+				<div class="category">
+					<div class="category__heading">
+						<h4 class="category__title">Мед. книжка</h4>
+						<h6 class="category__subtitle"></h6>
+					</div>
+					<div class="category__buttons">
+						<i
+							class="fa-solid fa-pen category__button"
+							style="color: #8e9cbc"
+						></i>
+						<i
+							class="fa-solid fa-trash-can category__button"
+							style="color: #ff238c"
+						></i>
+						<i
+							class="fa-solid fa-up-down category__button"
+							style="color: #839cbb"
+						></i>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+	<script
+		src="https://code.jquery.com/jquery-3.6.4.min.js"
+		integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
+		integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<script type="text/javascript" src="main.js"></script>
+</html>
