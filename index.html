@@ -36,7 +36,6 @@
 		<link rel="stylesheet" href="./style.css" />
 		<title>FOQUZ Test</title>
 	</head>
-
 	<body>
 		<!-- Header -->
 		<header class="header">
@@ -61,13 +60,23 @@
 				class="fa-solid fa-magnifying-glass searchIcon"
 				style="color: #8e9cbc"
 			></i>
-			<input id="search" type="text" name="search" placeholder="Поиск" />
-			<i class="fa-solid fa-xmark xmarkIcon" style="color: #ff238c"></i>
+			<input
+				id="search"
+				type="text"
+				name="search"
+				placeholder="Поиск"
+				data-bind="textInput: query, value: query"
+			/>
+			<i
+				class="fa-solid fa-xmark xmarkIcon"
+				style="color: #ff238c; cursor: pointer"
+				data-bind="click: clearQuery, visible: hasTyped"
+			></i>
 		</div>
 		<!-- Main -->
 		<main>
 			<!-- Categories -->
-			<div class="dropdowns" data-bind="sortable: categories">
+			<div class="dropdowns" data-bind="sortable: filteredCategories">
 				<div class="dropdown__container">
 					<div class="dropdown__header" data-bind="click: collapse">
 						<i
@@ -77,6 +86,11 @@
 						></i>
 						<div class="dropdown__header__heading">
 							<h4 class="dropdown__title" data-bind="text: title"></h4>
+							<div class="dropdown__dots">
+								<span class="dropdown__dots__dot_1"></span>
+								<span class="dropdown__dots__dot_2"></span>
+								<span class="dropdown__dots__dot_3"></span>
+							</div>
 							<h5 class="dropdown__subtitle" data-bind="text: subtitle"></h5>
 						</div>
 						<div class="dropdown__header__buttons">
@@ -91,14 +105,16 @@
 							<i
 								class="fa-solid fa-up-down category__button"
 								style="color: #839cbb"
-								data-bind="click: $parent.moveUp"
 							></i>
 						</div>
 					</div>
 					<div
-						class="dropdown__info"
+						class="dropdown__info connectedSortable"
 						data-bind="
-							sortable: elements, 
+							sortable: { 
+								data: elements, 
+								connectClass: 'connectedSortable' 
+							}, 
 							visible: isCollapsed,
 							slideIn: !isCollapsed()"
 					>
@@ -129,10 +145,24 @@
 			</div>
 
 			<!-- Single Categories -->
-			<div class="categories" data-bind="sortable: singleCategories">
+			<div
+				class="categories"
+				data-bind="
+				sortable: { 
+					data: filteredSingleCategories, 
+					connectClass: 'connectedSortable', 
+				}, 
+				event: { stop: onSortEnd }, 
+				css: { 'sortable-list': true }"
+			>
 				<div class="category">
 					<div class="category__heading">
 						<h4 class="category__title" data-bind="text: title"></h4>
+						<div class="dropdown__dots">
+							<span class="dropdown__dots__dot_1"></span>
+							<span class="dropdown__dots__dot_2"></span>
+							<span class="dropdown__dots__dot_3"></span>
+						</div>
 						<h6 class="category__subtitle" data-bind="text: subtitle"></h6>
 					</div>
 					<div class="category__buttons">
@@ -145,9 +175,8 @@
 							style="color: #ff238c"
 						></i>
 						<i
-							class="fa-solid fa-up-down category__button"
+							class="fa-solid fa-up-down category__button moveButton"
 							style="color: #839cbb"
-							data-bind="click: $parent.moveUp"
 						></i>
 					</div>
 				</div>

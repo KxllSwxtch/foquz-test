@@ -1,22 +1,13 @@
-// FUNCTIONALITY TO MAKE AN XMARK ICON VISIBLE ONLY WHEN THE USER TYPES
-$(document).ready(function () {
-	$('#search').on('input', function () {
-		if ($(this).val().length > 0) {
-			$(this).siblings('i.xmarkIcon').show()
-		} else {
-			$(this).siblings('i.xmarkIcon').hide()
-		}
-	})
-})
-
 // KO MODEL
-function CategoryModel({ title, subtitle, elements }) {
+function CategoryModel({ title, subtitle, status, elements }) {
 	const self = this
 
 	self.title = title
 	self.subtitle = subtitle
+	self.status = status
 	self.elements = elements
 
+	// Collapse functionality
 	self.isCollapsed = ko.observable(true)
 	self.collapse = function () {
 		self.isCollapsed(!self.isCollapsed())
@@ -26,14 +17,34 @@ function CategoryModel({ title, subtitle, elements }) {
 function ViewModel() {
 	const self = this
 
+	// Search
+	self.query = ko.observable('')
+	self.clearQuery = function () {
+		self.query('')
+	}
+	self.hasTyped = ko.computed(function () {
+		return self.query().length > 0
+	})
+
+	// This will only let the user move the item after clicking the move icon
+	self.selectedItem = ko.observable(null)
+
 	// Categories
 	self.categories = ko.observableArray([
 		new CategoryModel({
 			title: 'Обязательные для всех',
 			subtitle: 'Документы, обязательные для всех сотрудников без исключения',
 			elements: ko.observableArray([
-				{ title: 'Паспорт', status: 'Обязательный', subtitle: 'Для всех' },
-				{ title: 'ИНН', status: 'Обязательный', subtitle: 'Для всех' },
+				new CategoryModel({
+					title: 'Паспорт',
+					status: 'Обязательный',
+					subtitle: 'Для всех',
+				}),
+				new CategoryModel({
+					title: 'ИНН',
+					status: 'Обязательный',
+					subtitle: 'Для всех',
+				}),
 			]),
 		}),
 
@@ -51,6 +62,16 @@ function ViewModel() {
 		}),
 	])
 
+	self.filteredCategories = ko.computed(function () {
+		const query = self.query().toLowerCase()
+		if (!query) return self.categories()
+		else {
+			return ko.utils.arrayFilter(self.categories(), function (item) {
+				return item.title.toLowerCase().indexOf(query) >= 0
+			})
+		}
+	}, self)
+
 	// Single elements
 	self.singleCategories = ko.observableArray([
 		new CategoryModel({
@@ -58,18 +79,38 @@ function ViewModel() {
 			subtitle:
 				'Россия, Белорусия, Украина, администратор филиала, повар-сушист, повар-пиццмейкер, повар горячего цеха',
 			elements: [],
+			status: '',
 		}),
 		new CategoryModel({
 			title: 'Трудовой договор',
 			subtitle: '',
 			elements: [],
+			status: '',
 		}),
 		new CategoryModel({
 			title: 'Мед. книжка',
 			subtitle: '',
 			elements: [],
+			status: '',
 		}),
 	])
+
+	self.filteredSingleCategories = ko.computed(function () {
+		const query = self.query().toLowerCase()
+		if (!query) return self.singleCategories()
+		else {
+			return ko.utils.arrayFilter(self.singleCategories(), function (item) {
+				return item.title.toLowerCase().indexOf(query) >= 0
+			})
+		}
+	}, self)
+
+	self.onSortEnd = function (event, ui) {
+		ui.item.addClass('dropped-item')
+		setTimeout(function () {
+			ui.item.removeClass('dropped-item')
+		}, 500)
+	}
 }
 
 ko.bindingHandlers.slideIn = {
